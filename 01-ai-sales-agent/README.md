@@ -53,6 +53,15 @@ python agent.py prospects.csv --research-only
 
 Put your OpenRouter key in `.env` (or set `OPENROUTER_API_KEY` as an environment variable). `--research-only` doesn't need a key.
 
+## Tests
+
+`test_agent.py` covers the parts that don't need the network or an API key: the quality checks (length, hype words, exclamation marks, em dashes, copied prompt text, whether the email uses a real fact), JSON extraction from chatty model replies, score bounds, and the "nothing found" path. They run on every push through GitHub Actions.
+
+```bash
+pip install pytest
+python -m pytest -q
+```
+
 ## Built with
 
 Python, OpenRouter, ddgs (DuckDuckGo search), httpx, BeautifulSoup, Pydantic
