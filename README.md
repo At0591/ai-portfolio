@@ -1,7 +1,5 @@
 # AI projects
 
-[![tests](https://github.com/At0591/ai-portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/At0591/ai-portfolio/actions/workflows/tests.yml)
-
 These are things I've built while moving from sales and operations into AI automation. Most of them come from businesses I run, so each one solves a problem I actually had.
 
 | Project | What it does | Status |
