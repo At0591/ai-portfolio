@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/At0591/ai-portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/At0591/ai-portfolio/actions/workflows/tests.yml)
 
-These are things I've built while moving from sales and operations into AI automation. Most of them come from businesses I run, so each one solves a problem I actually had.
+These are things I've built while moving from sales and operations into AI automation. Most of them come from businesses I run, so each one solves a problem I had myself.
 
 | Project | What it does | Status |
 |---|---|---|
@@ -10,7 +10,7 @@ These are things I've built while moving from sales and operations into AI autom
 | Dum Biryani Rasoi ordering assistant | Answers menu questions and takes orders over WhatsApp, using the restaurant's real menu | Next |
 | Document Q&A bot | Answers questions from a company's own documents, with sources, behind a small API | Planned |
 | n8n automations | CRM, email and invoice workflows with AI steps that a small business can reuse | Planned |
-| Morning Ritual | My React Native habit app, rebuilt with the source code public | Later |
+| [KindRise](https://github.com/At0591/morning-ritual) | My gentle alarm app for Android (React Native, Expo and a native Kotlin alarm module); code in its own repo | Before launch |
 
 ## Setup
 
