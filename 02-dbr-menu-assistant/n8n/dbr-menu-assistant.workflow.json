@@ -1,0 +1,116 @@
+{
+  "id": "dbrMenuAssistant01",
+  "name": "DBR menu assistant",
+  "active": false,
+  "nodes": [
+    {
+      "id": "6f1c2a10-0001-4a8e-9b1a-000000000001",
+      "name": "Incoming message",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "5b0d7c9e-2f3a-4c1d-8e6f-dbr000000001",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "dbr-assistant",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "6f1c2a10-0002-4a8e-9b1a-000000000002",
+      "name": "Pick out the text",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [220, 0],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "message",
+              "type": "string",
+              "value": "={{ $json.body.message ?? $json.body.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.text?.body ?? '' }}"
+            },
+            {
+              "id": "a2",
+              "name": "sender",
+              "type": "string",
+              "value": "={{ $json.body.sender ?? $json.body.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.from ?? '' }}"
+            },
+            {
+              "id": "a3",
+              "name": "channel",
+              "type": "string",
+              "value": "={{ $json.body.entry ? 'whatsapp' : ($json.body.channel ?? 'webhook') }}"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "6f1c2a10-0003-4a8e-9b1a-000000000003",
+      "name": "Ask the assistant",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 0],
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/chat",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: $json.message, channel: $json.channel, sender: $json.sender }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      }
+    },
+    {
+      "id": "6f1c2a10-0004-4a8e-9b1a-000000000004",
+      "name": "Send the reply",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [680, -100],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ reply: $json.reply, whatsapp_link: $json.whatsapp_link, fallback: $json.fallback, cost_usd: $json.cost_usd }) }}",
+        "options": {}
+      }
+    },
+    {
+      "id": "6f1c2a10-0005-4a8e-9b1a-000000000005",
+      "name": "Send the fallback",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [680, 100],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ reply: 'Sorry, the assistant is not available right now. Please message the kitchen on WhatsApp: https://wa.me/919137461761', fallback: true }) }}",
+        "options": {
+          "responseCode": 200
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Incoming message": {
+      "main": [[{ "node": "Pick out the text", "type": "main", "index": 0 }]]
+    },
+    "Pick out the text": {
+      "main": [[{ "node": "Ask the assistant", "type": "main", "index": 0 }]]
+    },
+    "Ask the assistant": {
+      "main": [
+        [{ "node": "Send the reply", "type": "main", "index": 0 }],
+        [{ "node": "Send the fallback", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": []
+}
