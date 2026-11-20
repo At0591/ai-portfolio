@@ -1,0 +1,38 @@
+# Plain words, from GOV.UK's "words to avoid" and plain-English guidance (added 20 Nov 2026).
+# Executive writers pick the short, everyday word. This rule suggests it.
+extends: substitution
+message: "Plain English: use '%s' instead of '%s'."
+level: warning
+ignorecase: true
+swap:
+  utilise: use
+  utilize: use
+  utilisation: use
+  leverage: use
+  facilitate: help
+  facilitates: helps
+  streamline: simplify
+  empower: let
+  in order to: to
+  prior to: before
+  subsequent to: after
+  approximately: about
+  commence: start
+  terminate: end
+  endeavour: try
+  purchase: buy
+  obtain: get
+  assist: help
+  numerous: many
+  demonstrate: show
+  regarding: about
+  in relation to: about
+  with regard to: about
+  in the event that: if
+  at this point in time: now
+  going forward: from now on
+  deliverables: results
+  synergies: shared gains
+  key learnings: lessons
+  overarching: main
+  robust: strong

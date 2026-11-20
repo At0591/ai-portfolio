@@ -1,0 +1,29 @@
+# House style is British English with -ise endings (added 20 Nov 2026).
+# LanguageTool's en-GB accepts Oxford -ize spellings, so this rule catches them.
+extends: substitution
+message: "British house style: use '%s' instead of '%s'."
+level: error
+ignorecase: true
+swap:
+  personaliz(e|ed|es|ing|ation): personalise
+  organiz(e|ed|es|ing|ation|ations): organise
+  optimiz(e|ed|es|ing|ation): optimise
+  prioritiz(e|ed|es|ing): prioritise
+  realiz(e|ed|es|ing): realise
+  recogniz(e|ed|es|ing): recognise
+  customiz(e|ed|es|ing|ation): customise
+  summariz(e|ed|es|ing): summarise
+  standardiz(e|ed|es|ing): standardise
+  minimiz(e|ed|es|ing): minimise
+  maximiz(e|ed|es|ing): maximise
+  analyz(e|ed|es|ing): analyse
+  categoriz(e|ed|es|ing): categorise
+  authoriz(e|ed|es|ing|ation): authorise
+  apologiz(e|ed|es|ing): apologise
+  specializ(e|ed|es|ing): specialise
+  emphasiz(e|ed|es|ing): emphasise
+  behavior: behaviour
+  favorite: favourite
+  center: centre
+  catalog: catalogue
+  enroll: enrol

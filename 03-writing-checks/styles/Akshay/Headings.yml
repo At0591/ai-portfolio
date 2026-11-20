@@ -1,0 +1,21 @@
+extends: capitalization
+message: "Use sentence case for headings and labels: '%s'"
+level: error
+scope: heading
+match: $sentence
+indicators:
+  - ':'
+exceptions:
+  - I
+  - AI
+  - API
+  - APIs
+  - LLM
+  - CRM
+  - B2B
+  - RAG
+  - SEO
+  - MSc
+  - BCA
+  - TSB
+  - COVID

@@ -1,0 +1,32 @@
+extends: existence
+message: "Avoid '%s' (an AI-sounding or empty word). Say the specific thing."
+level: error
+ignorecase: true
+tokens:
+  - passionate
+  - leverage
+  - seamless(ly)?
+  - robust
+  - cutting-edge
+  - delve
+  - journey
+  - game-changer
+  - unlock
+  - empower
+  - elevate
+  - synergy
+  - innovative
+  - dynamic
+  - revolutioni[sz]e
+  - crucial
+  - pivotal
+  - showcas(e|es|ing)
+  - tapestry
+  - testament
+  - vibrant
+  - meticulous(ly)?
+  - underscore[sd]?
+  - additionally
+  - landscape
+  - in today's fast-paced world
+  - I'm excited to

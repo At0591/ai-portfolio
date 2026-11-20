@@ -1,0 +1,16 @@
+# Filler that adds words but no meaning (added 20 Nov 2026, from the plain-English research).
+extends: existence
+message: "Cut the filler '%s' and state the point."
+level: error
+ignorecase: true
+tokens:
+  - it is worth noting( that)?
+  - it should be noted( that)?
+  - it is important to note( that)?
+  - needless to say
+  - at the end of the day
+  - in today's (fast-paced )?world
+  - the fact of the matter is
+  - all things considered
+  - for all intents and purposes
+  - as a matter of fact

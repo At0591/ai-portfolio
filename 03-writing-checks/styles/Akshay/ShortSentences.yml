@@ -1,0 +1,5 @@
+extends: metric
+message: "Sentences here vary a lot in length (spread %s words). Mix short and medium sentences rather than very short ones next to very long ones."
+level: suggestion
+formula: sentence_length_sd
+condition: "> 9.0"

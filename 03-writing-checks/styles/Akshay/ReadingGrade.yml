@@ -1,0 +1,5 @@
+extends: metric
+message: "Reading grade is %s. Aim for 7 to 9: shorter sentences and plainer words."
+level: warning
+formula: flesch_kincaid
+condition: "> 9.5"

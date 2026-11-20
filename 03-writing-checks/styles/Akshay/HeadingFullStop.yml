@@ -1,0 +1,7 @@
+extends: existence
+message: "Don't end a heading with a full stop."
+level: error
+scope: heading
+nonword: true
+tokens:
+  - '\.$'
