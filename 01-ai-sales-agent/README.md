@@ -1,6 +1,6 @@
 # PixelPolish sales agent
 
-PixelPolish is a small photo-editing studio I run with my co-founder. We edit listing photos for Airbnb hosts, boutique hotels and coworking spaces. Finding clients meant hours of looking up each business, checking their photos and writing an email that didn't sound copy-pasted.
+PixelPolish is a small photo-editing studio I run with my co-founder. We edit listing photos for Airbnb hosts, boutique hotels and coworking spaces. Finding clients meant hours of looking up each business, checking their photos and writing an email that did not sound copy-pasted.
 
 This script does that first pass for me. I give it a CSV of businesses. For each one it reads their website and runs two web searches. Then it asks an LLM to score how well they fit and to draft a short email and follow-up. I read every draft before anything gets sent.
 
@@ -33,7 +33,7 @@ A real run on Abode Bombay, using a free model. It scored the fit 7 out of 10 an
 
 ## Why I built it this way
 
-I kept the AI to one step. Searching and reading pages is ordinary code, so it's cheap, predictable and easy to debug. The model only does the part that needs judgement: deciding whether a business is a good fit and writing to them.
+I kept the AI to one step. Searching and reading pages is ordinary code, so it is cheap, predictable and easy to debug. The model only does the part that needs judgement: deciding whether a business is a good fit and writing to them.
 
 It runs on OpenRouter. That means I can switch models by changing one line in `.env`. Free models work, and a cheap paid model gives more consistent writing for about a tenth of a cent per business.
 
@@ -41,7 +41,7 @@ The model is told to use only facts from the research. Each draft lists the fact
 
 ## Choosing a model
 
-The `compare_models.py` script researches each business once and gives the same research to several models, so only the model changes. I ran it on three hotels (17 Nov 2026). Bloomrooms Link Road was skipped by every model because the search results didn't match it.
+The `compare_models.py` script researches each business once and gives the same research to several models, so only the model changes. I ran it on three hotels (17 Nov 2026). Bloomrooms Link Road was skipped by every model because the search results did not match it.
 
 | Model | Emails passing checks | Fit scores | Cost for the run | Time per email |
 |---|---|---|---|---|
@@ -50,7 +50,7 @@ The `compare_models.py` script researches each business once and gives the same 
 | `deepseek/deepseek-v4.1-flash` | 2 of 2 | 8, 8 | $0.0053 | 16s |
 | `openai/gpt-6-luna` | 2 of 2 | 9, 8 | $0.0032 | 13s |
 
-All four passed the automatic checks, so I read the emails myself. I went with Claude Haiku 5.5. It picked out the most specific detail: a treehouse room at Ahilya by the Sea that the others ignored. It also scored fit more cautiously and was the fastest. DeepSeek wrote well too, but it added a guess about how the photos were taken. The sample was only two businesses, so I'll rerun this on twenty.
+All four passed the automatic checks, so I read the emails myself. I went with Claude Haiku 5.5. It picked out the most specific detail: a treehouse room at Ahilya by the Sea that the others ignored. It also scored fit more cautiously and was the fastest. DeepSeek wrote well too, but it added a guess about how the photos were taken. The sample was only two businesses, so I will rerun this on twenty.
 
 ## Running it
 
@@ -61,11 +61,11 @@ python agent.py prospects.csv --limit 2
 python agent.py prospects.csv --research-only
 ```
 
-Put your OpenRouter key in `.env` (or set `OPENROUTER_API_KEY` as an environment variable). The `--research-only` option doesn't need a key.
+Put your OpenRouter key in `.env` (or set `OPENROUTER_API_KEY` as an environment variable). The `--research-only` option does not need a key.
 
 ## Tests
 
-The test file `test_agent.py` covers the parts that don't need the network or an API key:
+The test file `test_agent.py` covers the parts that do not need the network or an API key:
 
 * the quality checks: length, hype words, exclamation marks, em dashes, copied prompt text and whether the email uses a real fact
 * JSON extraction from chatty model replies

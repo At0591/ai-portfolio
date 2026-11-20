@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/At0591/ai-portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/At0591/ai-portfolio/actions/workflows/tests.yml)
 
-These are things I've built while moving from sales and operations into AI automation. Most of them come from businesses I run. Each one solves a problem I had myself.
+These are things I have built while moving from sales and operations into AI automation. Most of them come from businesses I run. Each one solves a problem I had myself.
 
 | Project | What it does | Status |
 |---|---|---|
@@ -23,4 +23,4 @@ py -m venv %USERPROFILE%\.venvs\ai-portfolio
 %USERPROFILE%\.venvs\ai-portfolio\Scripts\pip install -r 02-dbr-menu-assistant\requirements.txt
 ```
 
-The projects use [OpenRouter](https://openrouter.ai/keys) for the LLM. Set `OPENROUTER_API_KEY` as an environment variable, or put it in a `.env` file inside the project folder. The `.env` file is listed in `.gitignore`, so it won't be committed.
+The projects use [OpenRouter](https://openrouter.ai/keys) for the LLM. Set `OPENROUTER_API_KEY` as an environment variable, or put it in a `.env` file inside the project folder. The `.env` file is listed in `.gitignore`, so it will not be committed.
